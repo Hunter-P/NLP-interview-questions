@@ -2,7 +2,7 @@
 
 ## Transformer
 
-#### 1.为什么Transformer 需要进行 Multi-head Attention？
+### 1.为什么Transformer 需要进行 Multi-head Attention？
 
 简单回答就是，多头保证了transformer可以注意到不同子空间的信息，捕捉到更加丰富的特征信息。其实本质上是论文原作者发现这样效果确实好。
 
@@ -18,9 +18,7 @@
 
 解析: https://www.zhihu.com/question/341222779
 
-
-
-#### 2.Transformer为什么Q和K使用不同的权重矩阵生成，为何不能使用同一个值进行自身的点乘？
+### 2.Transformer为什么Q和K使用不同的权重矩阵生成，为何不能使用同一个值进行自身的点乘？
 
 注解：简单回答就是，使用Q/K/V不相同可以保证在不同空间进行投影，增强了表达能力，提高了泛化能力。
 
@@ -28,22 +26,16 @@ K和Q使用了不同的W_k, W_Q来计算，可以理解为是在不同空间上�
 
 解析：https://www.zhihu.com/question/319339652
 
-
-
-#### 3.Transformer计算attention的时候为何选择点乘而不是加法？两者计算复杂度和效果上有什么区别？
+### 3.Transformer计算attention的时候为何选择点乘而不是加法？两者计算复杂度和效果上有什么区别？
 
 答案解析：为了计算更快。矩阵加法在加法这一块的计算量确实简单，但是作为一个整体计算attention的时候相当于一个隐层，整体计算量和点积相似。在效果上来说，从实验分析，两者的效果和dk相关，dk越大，加法的效果越显著。
 
-
-
-#### 4.为什么在进行softmax之前需要对attention进行scaled（为什么除以dk的平方根），并使用公式推导进行讲解
+### 4.为什么在进行softmax之前需要对attention进行scaled（为什么除以dk的平方根），并使用公式推导进行讲解
 
 将attention进行缩放，使得其方差为1，避免输入的数量级很大时，softmax梯度消失为0，造成参数更新困难。
 
 解析：https://www.zhihu.com/question/339723385/answer/782509914
 
-
-
-#### 5.在计算attention score的时候如何对padding做mask操作？
+### 5.在计算attention score的时候如何对padding做mask操作？
 
 答案解析：padding位置置为负无穷(一般来说-1000就可以)。
