@@ -39,3 +39,9 @@ K和Q使用了不同的W_k, W_Q来计算，可以理解为是在不同空间上�
 ### 5.在计算attention score的时候如何对padding做mask操作？
 
 答案解析：padding位置置为负无穷(一般来说-1000就可以)。
+
+## BERT
+### 1.BERT有什么
+答案解析：
+* bert认为mask之间是相互独立的，但实际上mask和mask之间肯定是有联系的，但是bert在预训练的时候没有考虑到这点。
+* bert的预训练存在mask字符，但是在微调的时候没有mask字符，造成预训练和微调存在gap。
